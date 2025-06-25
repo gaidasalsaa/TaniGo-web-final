@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #eaf5ea, #f5fdf5);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.register-container {
+    display: flex;
+    flex-direction: row;
+    width: 750px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.left-panel, .right-panel {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left-panel {
+    background-color: #2e4d23;
+    color: white;
+    text-align: center;
+}
+
+.left-panel img.logo {
+    width: 90px;
+    margin: 0 auto 25px;
+}
+
+.left-panel h1 {
+    font-size: 28px;
+    line-height: 1.4;
+}
+
+.right-panel h2 {
+    margin-bottom: 20px;
+    color: #2e4d23;
+    font-size: 22px;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 14px;
+    transition: border 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #3c6c2d;
+    outline: none;
+}
+
+button {
+    background-color: #3c6c2d;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #4e8839;
+}
+
+.login-link, .signup-text {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-link a, .signup-text a {
+    color: #2e4d23;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    background-color: #ffe1e1;
+    color: #a10000;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .register-container {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .left-panel, .right-panel {
+        padding: 30px;
+        text-align: center;
+    }
+}
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0 24px;
+    font-size: 14px;
+    color: #333;
+}
+
+.remember-me input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: #3b7d2a;
+    vertical-align: middle;
+}
+
+.remember-me label {
+    display: inline-block;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}

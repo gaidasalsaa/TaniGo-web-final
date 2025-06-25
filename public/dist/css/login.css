@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f4f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    display: flex;
+    background-color: white;
+    width: 900px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.login-left, .login-right {
+    flex: 1;
+    padding: 50px;
+}
+
+.login-left {
+    background-color: #2e4d23;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-left img.logo {
+    width: 100px;
+    margin-bottom: 30px;
+}
+
+.login-left h1 {
+    font-size: 36px;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.login-right h2 {
+    margin-bottom: 25px;
+    color: #2e4d23;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: border 0.3s;
+}
+
+input:focus {
+    border-color: #3c6c2d;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3c6c2d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #558e3f;
+}
+
+.signup-text {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.signup-text a {
+    color: #2e4d23;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    background-color: #ffd6d6;
+    color: #a10000;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .login-left, .login-right {
+        padding: 30px;
+    }
+
+    .login-left {
+        text-align: center;
+    }
+}
