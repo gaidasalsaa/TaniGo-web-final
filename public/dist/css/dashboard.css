@@ -58,7 +58,7 @@ body {
 }
 
 .container-content {
-    background-color: #d8f3dc;
+    background-color: #f5f4e9;
     text-align: center;
     padding: 30px 20px;
     border-radius: 20px;
@@ -96,7 +96,7 @@ body {
 }
 
 .produk-item {
-    background-color: #e9f5ee;
+    background-color: #f2f5ef;
     border-radius: 15px;
     padding: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -128,7 +128,7 @@ body {
 }
 
 .wisata-item {
-    background-color: #e9f5ee;
+    background-color: #f2f5ef;
     border-radius: 15px;
     padding: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -242,3 +242,42 @@ footer {
     cursor: pointer;
 }
 
+.slider-wrapper {
+    position: relative;
+    height: 300px;
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+.slider {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    position: absolute;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.welcome-text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    padding-top: 100px;
+    background: rgba(0, 0, 0, 0.4); /* overlay */
+    height: 100%;
+}

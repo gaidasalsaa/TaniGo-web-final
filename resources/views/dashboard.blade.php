@@ -47,13 +47,19 @@
         </div>
         <!-- navigation bar selesai -->
 
-        <!-- content 1 -->
-        <div class="container-content">
-            <div class="welcome-box">
+        <!-- content 1: Welcome with image carousel -->
+        <div class="container-content slider-wrapper">
+            <div class="slider">
+                <div class="slide active" style="background-image: url('{{ asset('dist/img/slide1.jpeg') }}');"></div>
+                <div class="slide" style="background-image: url('{{ asset('dist/img/slide2.jpg') }}');"></div>
+                <div class="slide" style="background-image: url('{{ asset('dist/img/slide3.jpg') }}');"></div>
+            </div>
+            <div class="welcome-text">
                 <h1>Sugeng Rawuh, {{ Auth::user()->name }}!</h1>
                 <p>Selamat datang di dashboard TaniGo!</p>
             </div>
         </div>
+
 
         <!-- Produk -->
         <div class="dashboard-container">
@@ -107,15 +113,15 @@
                     </div>
                     <div class="wisata-item"> 
                         <a href="javascript:void(0);" class="a-navbar" onclick="showPopup()">
-                            <img src="{{ asset('dist/img/WatuSemaur.jpg') }}" alt="Watu Semaur">
+                            <img src="{{ asset('dist/img/AirTerjunSunggah.jpg') }}" alt="Air Terjun Sunggah">
                         </a>
-                        <p>Watu Semaur</p>
+                        <p>Air Terjun Sunggah</p>
                     </div>
                     <div class="wisata-item"> 
                         <a href="javascript:void(0);" class="a-navbar" onclick="showPopup()">
-                            <img src="{{ asset('dist/img/WatuSemaur.jpg') }}" alt="Watu Semaur">
+                            <img src="{{ asset('dist/img/TumpakLego.jpeg') }}" alt="Tumpak Lego">
                         </a>
-                        <p>Watu Semaur</p>
+                        <p>Tumpak Lego</p>
                     </div>
                 </div>
             </section>
@@ -164,5 +170,17 @@
             target="_blank">Lihat Lokasi di Google Maps</a>
         </div>
     </div>
+    <script>
+        let slides = document.querySelectorAll('.slide');
+        let current = 0;
+
+        function showNextSlide() {
+            slides[current].classList.remove('active');
+            current = (current + 1) % slides.length;
+            slides[current].classList.add('active');
+        }
+
+        setInterval(showNextSlide, 4000); // 4 detik
+    </script>
 </body>
 </html>
