@@ -15,15 +15,21 @@ class AuthController extends Controller
     public function proseslogin(Request $request)
     {
         $credentials = $request->only('email', 'password');
-        $remember = $request->has('remember'); // true jika checkbox dicentang
+        $remember = $request->has('remember');
 
         if (Auth::attempt($credentials, $remember)) {
-            return redirect()->route('dashboard')->with('message', 'Login berhasil!');
+            $user = Auth::user();
+
+            // Redirect berdasarkan role
+            if ($user->role === 'seller') {
+                return redirect()->route('seller.dashboard')->with('message', 'Login sebagai Penjual berhasil!');
+            } else {
+                return redirect()->route('dashboard')->with('message', 'Login sebagai Pembeli berhasil!');
+            }
         }
 
         return back()->with('error', 'Email atau password salah!')->withInput();
     }
-
 
     public function showRegister()
     {
@@ -63,12 +69,14 @@ class AuthController extends Controller
             'alamat' => $request->alamat,
             'password' => Hash::make($request->password),
             'foto_profil' => null,
+            'role' => 'user', 
         ]);
 
-        dd($request->all());
+        // dd($request->all());
 
         Auth::login($user);
-        return redirect('/dashboard')->with('message', 'Registrasi berhasil!'); 
+        return redirect()->route('login')->with('message', 'Registrasi berhasil! Silakan login.');
+ 
     }
     
     public function logout(Request $request)
@@ -78,7 +86,4 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
         return redirect()->route('login')->with('message', 'Berhasil logout!');
     }
-
-
-
 }

@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Registrasi | TaniGo</title>
+    <title>Registrasi Penjual | TaniGo</title>
     <link rel="stylesheet" href="{{ asset('dist/css/register.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -10,8 +10,9 @@
     <div class="register-container">
         <div class="left-panel">
             <img src="{{ asset('dist/img/TaniGo_logo.png') }}" alt="TaniGo Logo" class="logo">
-            <h1>Buat Akun<br>Anda!</h1>
+            <h1>Gabung Sebagai<br>Mitra Penjual!</h1>
         </div>
+
         <div class="right-panel">
             @if ($errors->any())
                 <div style="background: #f8d7da; padding: 10px; border-radius: 4px; color: #721c24; margin-bottom: 20px;">
@@ -22,9 +23,10 @@
                     </ul>
                 </div>
             @endif
-            <form action="{{ route('register') }}" method="POST">
+
+            <form action="{{ route('register.seller') }}" method="POST">
                 @csrf
-                <h2>Form Registrasi</h2>
+                <h2>Form Pendaftaran Penjual</h2>
 
                 <label for="nama">Nama</label>
                 <input type="text" name="nama" required>
@@ -59,38 +61,35 @@
 
                 <small id="password-error" style="color: red; display: none;">Password tidak cocok</small>
 
-                <button type="submit">Daftar Sekarang</button>
+                <button type="submit">Daftar Sebagai Penjual</button>
 
-                <p class="login-link">Sudah memiliki akun? <a href="{{ route('login') }}">Masuk</a></p>
-                <p class="signup-text">
-                    Ingin menjual produkmu? <a href="{{ route('register.seller') }}">Gabung sebagai Mitra Penjual</a>
-                </p>
+                <p class="login-link">Sudah punya akun? <a href="{{ route('login') }}">Masuk di sini</a></p>
+                <p class="signup-text">Bukan penjual? <a href="{{ route('register') }}">Daftar sebagai Pengguna</a></p>
             </form>
         </div>
     </div>
-<script>
-    const password = document.getElementById('password');
-    const confirm = document.getElementById('password_confirmation');
-    const errorText = document.getElementById('password-error');
 
-    confirm.addEventListener('input', () => {
-        if (password.value !== confirm.value) {
-            errorText.style.display = 'block';
-        } else {
-            errorText.style.display = 'none';
-        }
-    });
+    <script>
+        const password = document.getElementById('password');
+        const confirm = document.getElementById('password_confirmation');
+        const errorText = document.getElementById('password-error');
 
-    // Optional: Cegah submit kalau tidak cocok
-    const form = document.querySelector('form');
-    form.addEventListener('submit', function (e) {
-        if (password.value !== confirm.value) {
-            e.preventDefault();
-            errorText.style.display = 'block';
-            confirm.focus();
-        }
-    });
-</script>
+        confirm.addEventListener('input', () => {
+            if (password.value !== confirm.value) {
+                errorText.style.display = 'block';
+            } else {
+                errorText.style.display = 'none';
+            }
+        });
 
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function (e) {
+            if (password.value !== confirm.value) {
+                e.preventDefault();
+                errorText.style.display = 'block';
+                confirm.focus();
+            }
+        });
+    </script>
 </body>
 </html>

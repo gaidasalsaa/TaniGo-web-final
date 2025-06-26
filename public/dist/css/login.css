@@ -127,3 +127,12 @@ button:hover {
         text-align: center;
     }
 }
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: center;
+}

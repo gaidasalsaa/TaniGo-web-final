@@ -155,3 +155,19 @@ button:hover {
     padding: 0;
     cursor: pointer;
 }
+.signup-text {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.signup-text a {
+    color: #3c6c2d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}

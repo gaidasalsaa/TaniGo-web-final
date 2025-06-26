@@ -13,6 +13,11 @@
             <h1>Selamat<br>Datang Kembali!</h1>
         </div>
         <div class="right-panel">
+            @if (session('message'))
+                <div class="success-message">
+                    {{ session('message') }}
+                </div>
+            @endif
             <form action="{{ route('proseslogin') }}" method="POST">
                 @csrf
 

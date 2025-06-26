@@ -55,6 +55,7 @@
                 <div class="slide" style="background-image: url('{{ asset('dist/img/slide3.jpg') }}');"></div>
             </div>
             <div class="welcome-text">
+                {{-- <p>{{ Auth::check() ? 'Sudah Login' : 'Belum Login' }}</p> --}}
                 <h1>Sugeng Rawuh, {{ Auth::user()->name }}!</h1>
                 <p>Selamat datang di dashboard TaniGo!</p>
             </div>
