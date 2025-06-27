@@ -157,19 +157,20 @@ body {
 }
 .navadm-link {
     display: block;
-    padding: 10px 20px;
+    padding: 12px 16px;
+    margin: 6px 0;
     color: white;
     text-decoration: none;
-    font-weight: bold;
     background-color: transparent;
     border: none;
     text-align: left;
     cursor: pointer;
     width: 100%;
+    border-radius: 8px;
 }
 
 .navadm-link:hover {
-    background-color: #3e8e41; /* warna hover */
+    background-color: #3b7d2a; /* warna hover */
 }
 
 .navadm .active {

@@ -14,26 +14,19 @@
            Kelola Produk
         </a>
 
-        <a href="#"
+        <a href="{{ route('orders.index') }}"
            class="{{ request()->is('pesanan-masuk') ? 'active' : '' }}">
            Pesanan Masuk
         </a>
 
-        <a href="#"
+        <a href="{{ route('orders.history') }}"
            class="{{ request()->is('riwayat-penjualan') ? 'active' : '' }}">
            Riwayat Penjualan
         </a>
-
-        <a href="#"
-           class="{{ request()->is('pengaturan') ? 'active' : '' }}">
-           Pengaturan
-        </a>
-
+        
         <form action="{{ route('logout') }}" method="POST" onsubmit="return confirm('Yakin ingin logout?');">
             @csrf
-            <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer; padding: 0;">
-               Logout
-            </button>
+            <button type="submit" class="navadm-link">Logout</button>
          </form>
     </nav>
     <footer class="footeradm">

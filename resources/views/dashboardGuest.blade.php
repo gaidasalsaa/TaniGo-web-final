@@ -31,20 +31,12 @@
                 <li class="li-navbar"><a href="{{ route('buyer.products.index') }}" class="a-navbar">Produk</a></li>
                 <li class="li-navbar"><a href="/tentangkami" class="a-navbar">Tentang Kami</a></li>
                 <li class="li-navbar"><a href="/keranjang" class="a-navbar">Keranjang</a></li>
-                <li class="li-navbar">
-                    <form action="{{ route('logout') }}" method="POST" class="logout-form">
-                        @csrf
-                        <button type="submit">Logout</button>
-                    </form>
-                </li>
             </ul>
 
             <!-- Profil & Logout -->
             <div class="auth-navbar">
-                <a href="/profil" class="profile">
-                    {{ Auth::user()->name }}
-                    <img src="https://img.icons8.com/ios-glyphs/30/user--v1.png" alt="User Icon"/>
-                </a>
+                <a href="{{ route('login') }}" class="btn">Login</a>
+                <a href="{{ route('register') }}" class="btn">Daftar</a>
             </div>
         </div>
         <!-- navigation bar selesai -->
@@ -58,8 +50,8 @@
             </div>
             <div class="welcome-text">
                 {{-- <p>{{ Auth::check() ? 'Sudah Login' : 'Belum Login' }}</p> --}}
-                <h1>Sugeng Rawuh, {{ Auth::user()->name }}!</h1>
-                <p>Selamat datang di dashboard TaniGo!</p>
+                <h1>Selamat Datang di TaniGo!</h1>
+                <p>Jelajahi produk-produk terbaik dari para petani lokal.</p>
             </div>
         </div>
 

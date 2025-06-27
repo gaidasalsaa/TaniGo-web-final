@@ -15,7 +15,7 @@
         <main class="mainadm">
             <header class="headeradm">
                 <h2>Tambah Produk Baru</h2>
-                <a href="#" class="useradm">👤 {{ Auth::user()->name }} ▾</a>
+                <a href="{{ route('seller.profile.edit') }}" class="useradm">👤 {{ Auth::user()->name }} ▾</a>
             </header>
 
             <section class="form-section">
@@ -36,12 +36,21 @@
 
                     <label for="nama_produk">Nama Produk</label>
                     <input type="text" name="nama_produk" id="nama_produk" required>
+                    
+                    <label for="kategori">Kategori Produk</label>
+                    <select name="kategori" id="kategori" required>
+                        <option value="" disabled selected>Pilih Kategori</option>
+                        <option value="mentah">Produk Mentah</option>
+                        <option value="setengah_jadi">Produk Setengah Jadi</option>
+                        <option value="jadi">Produk Jadi</option>
+                        <option value="kerajinan">Kerajinan Tangan</option>
+                    </select>
 
                     <label for="stok">Stok</label>
                     <input type="number" name="stok" id="stok" min="1" required>
 
                     <label for="harga">Harga (Rp)</label>
-                    <input type="number" name="harga" id="harga" min="100" required>
+                    <input type="number" name="harga" id="harga" min="1" required>
 
                     <label for="deskripsi">Deskripsi</label>
                     <textarea name="deskripsi" id="deskripsi" rows="4"></textarea>
@@ -61,8 +70,8 @@
         // Contoh interaktif: validasi input harga
         const hargaInput = document.getElementById('harga');
         hargaInput.addEventListener('input', function () {
-            if (parseInt(this.value) < 100) {
-                alert('Harga minimal Rp 100');
+            if (parseInt(this.value) < 1) {
+                alert('Harga minimal Rp 1');
                 this.value = 100;
             }
         });

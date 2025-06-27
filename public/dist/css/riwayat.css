@@ -1,0 +1,40 @@
+.order-section {
+    background-color: #f5f4e9;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.order-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.order-id {
+    font-weight: bold;
+    color: #4e4e4e;
+}
+
+.order-status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-selesai {
+    background: #d4edda;
+    color: #155724;
+}
+
+.order-body p {
+    margin: 4px 0;
+}

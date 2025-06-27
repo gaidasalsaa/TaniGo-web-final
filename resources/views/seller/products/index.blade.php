@@ -15,7 +15,7 @@
         <main class="mainadm">
             <header class="headeradm">
                 <h2>Kelola Produk</h2>
-                <a href="#" class="useradm">👤 {{ Auth::user()->name }} ▾</a>
+                <a href="{{ route('seller.profile.edit') }}" class="useradm">👤 {{ Auth::user()->name }} ▾</a>
             </header>
 
             <section class="dashboardadm">
@@ -29,10 +29,21 @@
                 @endif
 
                 <div class="produk-list">
+                    <form action="{{ route('products.index') }}" method="GET" class="filter-form">
+                        <label for="kategori">Filter Kategori:</label>
+                        <select name="kategori" id="kategori" onchange="this.form.submit()">
+                            <option value="semua" {{ request('kategori') == 'semua' ? 'selected' : '' }}>Semua</option>
+                            <option value="mentah" {{ request('kategori') == 'mentah' ? 'selected' : '' }}>Produk Mentah</option>
+                            <option value="setengah_jadi" {{ request('kategori') == 'setengah_jadi' ? 'selected' : '' }}>Produk Setengah Jadi</option>
+                            <option value="jadi" {{ request('kategori') == 'jadi' ? 'selected' : '' }}>Produk Jadi</option>
+                            <option value="kerajinan" {{ request('kategori') == 'kerajinan' ? 'selected' : '' }}>Kerajinan Tangan</option>
+                        </select>
+                    </form>
                     <table class="produk-table">
                         <thead>
                             <tr>
                                 <th>Nama Produk</th>
+                                <th>Kategori</th>
                                 <th>Harga</th>
                                 <th>Stok</th>
                                 <th>Foto</th>
@@ -43,6 +54,7 @@
                             @forelse ($products as $product)
                                 <tr>
                                     <td>{{ $product->nama_produk }}</td>
+                                    <td>{{ ucfirst(str_replace('_', ' ', $product->kategori)) }}</td>
                                     <td>Rp {{ number_format($product->harga, 0, ',', '.') }}</td>
                                     <td>{{ $product->stok }}</td>
                                     <td>

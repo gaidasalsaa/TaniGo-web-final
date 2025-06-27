@@ -15,7 +15,7 @@
         <main class="mainadm">
             <header class="headeradm">
                 <h2>Edit Produk</h2>
-                <a href="#" class="useradm">👤 {{ Auth::user()->name }} ▾</a>
+                <a href="{{ route('seller.profile.edit') }}" class="useradm">👤 {{ Auth::user()->name }} ▾</a>
             </header>
 
             <section class="form-section">
@@ -38,6 +38,14 @@
                     <label for="nama_produk">Nama Produk</label>
                     <input type="text" name="nama_produk" id="nama_produk" value="{{ old('nama_produk', $product->nama_produk) }}" required>
 
+                    <label for="kategori">Kategori Produk</label>
+                    <select name="kategori" id="kategori" required>
+                        <option value="mentah" {{ $product->kategori == 'mentah' ? 'selected' : '' }}>Produk Mentah</option>
+                        <option value="setengah_jadi" {{ $product->kategori == 'setengah_jadi' ? 'selected' : '' }}>Produk Setengah Jadi</option>
+                        <option value="jadi" {{ $product->kategori == 'jadi' ? 'selected' : '' }}>Produk Jadi</option>
+                        <option value="kerajinan" {{ $product->kategori == 'kerajinan' ? 'selected' : '' }}>Kerajinan Tangan</option>
+                    </select>
+
                     <label for="stok">Stok</label>
                     <input type="number" name="stok" id="stok" min="1" value="{{ old('stok', $product->stok) }}" required>
 
@@ -46,6 +54,14 @@
 
                     <label for="deskripsi">Deskripsi</label>
                     <textarea name="deskripsi" id="deskripsi" rows="4">{{ old('deskripsi', $product->deskripsi) }}</textarea>
+
+                    <label for="foto">Ganti Foto Produk (Opsional)</label>
+                    <input type="file" name="foto" id="foto" accept="image/*">
+
+                    @if ($product->foto)
+                        <p>Foto Saat Ini:</p>
+                        <img src="{{ asset('storage/' . $product->foto) }}" alt="Foto Produk" width="120">
+                    @endif
 
                     <button type="submit">Perbarui Produk</button>
                 </form>

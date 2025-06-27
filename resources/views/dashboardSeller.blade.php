@@ -16,9 +16,8 @@
             <nav class="navadm">
                 <a class="active">Dashboard</a>
                 <a href="{{ route('products.index') }}">Kelola Produk</a>
-                <a href="#">Pesanan Masuk</a>
-                <a href="#">Riwayat Penjualan</a>
-                <a href="#">Pengaturan</a>
+                <a href="{{ route('orders.index') }}">Pesanan Masuk</a>
+                <a href="{{ route('orders.history') }}">Riwayat Penjualan</a>
                 <form action="{{ route('logout') }}" method="POST" onsubmit="return confirm('Yakin ingin logout?');">
                     @csrf
                     <button type="submit" class="navadm-link">Logout</button>
@@ -35,8 +34,13 @@
         <!-- Main Content -->
         <main class="mainadm">
             <header class="headeradm">
-                <h2>Selamat Datang, {{ Auth::user()->name }}!</h2>
-                <a href="#" class="useradm">👤 {{ Auth::user()->name }} ▾</a>
+                @if(Auth::check())
+                    <h2>Selamat Datang, {{ Auth::user()->name }}!</h2>
+                    <a href="{{ route('seller.profile.edit') }}" class="useradm">👤 {{ Auth::user()->name }} ▾</a>
+                @else
+                    <h2>Selamat Datang, Pengunjung!</h2>
+                    <a href="#" class="useradm">👤 Guest ▾</a>
+                @endif
             </header>
 
             <section class="dashboardadm">

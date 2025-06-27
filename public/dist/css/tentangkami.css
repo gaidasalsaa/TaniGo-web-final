@@ -1,0 +1,88 @@
+.tentangkami-section {
+    margin-bottom: 3rem;
+}
+
+.tentangkami-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    animation: fadeIn 1s ease-out;
+}
+
+.tentangkami-map {
+    width: 250px;
+    max-width: 100%;
+}
+
+.tentangkami-desc {
+    flex: 1;
+}
+
+.tentangkami-desc h2 {
+    font-size: 2rem;
+    color: #1b4332;
+    margin-bottom: 0.5rem;
+}
+
+.tentangkami-desc h3 {
+    color: #2d6a4f;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.tentangkami-desc p {
+    color: #333;
+    line-height: 1.6;
+}
+
+.misi-section .misi-title {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #1b4332;
+    margin-bottom: 1rem;
+}
+
+.misi-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.misi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.misi-card {
+    background-color: #f2f5ef;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.misi-card:hover {
+    transform: translateY(-5px);
+}
+
+.misi-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.misi-card p {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
