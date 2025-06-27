@@ -31,19 +31,11 @@
 
             <!-- Profil & Logout -->
             <div class="auth-navbar">
-                @auth
-                    <a href="{{ route('dashboard') }}" class="profile">{{ Auth::user()->name }}</a>
-                    <form action="{{ route('logout') }}" method="POST" class="logout-form">
-                        @csrf
-                        <button type="submit">Logout</button>
-                    </form>
-                @endauth
-
-                @guest
-                    <a href="{{ route('login') }}" class="a-navbar">Login</a>
-                    <a href="{{ route('register') }}" class="a-navbar">Daftar</a>
-                @endguest
-            </div>     
+                    <a href="/profil" class="profile">
+                        {{ Auth::user()->name }}
+                        <img src="https://img.icons8.com/ios-glyphs/30/user--v1.png" alt="User Icon"/>
+                    </a>
+            </div>  
         </div>
         <!-- End Navbar -->
 

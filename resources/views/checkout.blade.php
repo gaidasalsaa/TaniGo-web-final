@@ -87,50 +87,71 @@
 <body>
     <div class="container">
         <div class="navbar-container">
-                <ul class="ul-navbar">
-                    <a href="{{ route('dashboard') }}" class="a-navbar">
-                        <img src="{{ asset('dist/img/TaniGo_logo.png') }}" class="img-logo">
-                    </a>
-                    <li class="li-navbar"><a href="{{ route('dashboard') }}" class="a-navbar">Home</a></li>
-                    <li class="li-navbar"><a href="{{ route('buyer.products.index') }}" class="a-navbar">Produk</a></li>
-                    <li class="li-navbar"><a href="/tentangkami" class="a-navbar">Tentang Kami</a></li>
-                    <li class="li-navbar"><a href="/keranjang" class="a-navbar">Keranjang</a></li>
-                    <li class="li-navbar">
-                        <form action="{{ route('logout') }}" method="POST" class="logout-form">
-                            @csrf
-                            <button type="submit">Logout</button>
-                        </form>
-                    </li>
-                </ul>
-                <div class="auth-navbar">
-                    <a href="/profil" class="profile">
-                        {{ Auth::user()->name }}
-                        <img src="https://img.icons8.com/ios-glyphs/30/user--v1.png" alt="User Icon"/>
-                    </a>
-                </div>
+            <ul class="ul-navbar">
+                <a href="{{ route('dashboard') }}" class="a-navbar">
+                    <img src="{{ asset('dist/img/TaniGo_logo.png') }}" class="img-logo">
+                </a>
+                <li class="li-navbar"><a href="{{ route('dashboard') }}" class="a-navbar">Home</a></li>
+                <li class="li-navbar"><a href="{{ route('buyer.products.index') }}" class="a-navbar">Produk</a></li>
+                <li class="li-navbar"><a href="/tentangkami" class="a-navbar">Tentang Kami</a></li>
+                <li class="li-navbar"><a href="/keranjang" class="a-navbar">Keranjang</a></li>
+                <li class="li-navbar">
+                    <form action="{{ route('logout') }}" method="POST" class="logout-form">
+                        @csrf
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+            </ul>
+            <div class="auth-navbar">
+                <a href="/profil" class="profile">
+                    {{ Auth::user()->name }}
+                    <img src="https://img.icons8.com/ios-glyphs/30/user--v1.png" alt="User Icon"/>
+                </a>
+            </div>
         </div>
+
         <h1 class="checkout-title">Checkout</h1>
 
         <div class="checkout-box">
             <h3>Produk yang Dibeli:</h3>
             <ul class="checkout-items-list">
-                @foreach ($carts as $cart)
-                    <li>
-                        <span>{{ $cart->product->nama_produk }} ({{ $cart->quantity }}x)</span>
-                        <span>Rp. {{ number_format($cart->product->harga * $cart->quantity, 0, ',', '.') }}</span>
-                    </li>
-                @endforeach
+                <li>
+                    <span>Porang (1x)</span>
+                    <span>Rp. 35.000</span>
+                </li>
+                <li>
+                    <span>Beras Porang (1x)</span>
+                    <span>Rp. 45.000</span>
+                </li>
             </ul>
 
             <div class="total">
                 <span>Total:</span>
-                <strong>Rp. {{ number_format($total, 0, ',', '.') }}</strong>
+                <strong>Rp. 80.000</strong>
             </div>
 
             <form action="{{ route('checkout.process') }}" method="POST" class="checkout-form">
                 @csrf
+
                 <label for="alamat">Alamat Pengiriman:</label>
                 <textarea name="alamat" id="alamat" rows="4" required></textarea>
+
+                <label for="jasa_antar">Jasa Antar:</label>
+                <select name="jasa_antar" id="jasa_antar" required>
+                    <option value="">-- Pilih Jasa Antar --</option>
+                    <option value="JNE">JNE</option>
+                    <option value="J&T">J&T</option>
+                    <option value="SiCepat">SiCepat</option>
+                </select>
+
+                <label for="metode_pembayaran">Metode Pembayaran:</label>
+                <select name="metode_pembayaran" id="metode_pembayaran" required>
+                    <option value="">-- Pilih Metode Pembayaran --</option>
+                    <option value="Transfer Bank">Transfer Bank</option>
+                    <option value="COD">COD</option>
+                    <option value="QRIS">QRIS</option>
+                </select>
+
                 <button type="submit" class="buy-button">Konfirmasi & Bayar</button>
             </form>
         </div>

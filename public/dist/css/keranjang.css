@@ -246,7 +246,7 @@ form.logout-form button:hover {
 /* Tombol hapus yang lebih bagus */
 .delete-btn {
   background-color: #ff4d4d;
-  color: white;
+  color: black;
   border: none;
   padding: 6px 12px;
   border-radius: 4px;

@@ -57,6 +57,8 @@ class CartController extends Controller
     {
         $request->validate([
             'alamat' => 'required|string|max:255',
+            'jasa_antar' => 'required|in:JNE,J&T,SiCepat',
+            'metode_pembayaran' => 'required|in:Transfer Bank,COD,QRIS',
         ]);
 
         // Simulasikan simpan pesanan

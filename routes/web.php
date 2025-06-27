@@ -8,6 +8,7 @@ use App\Http\Controllers\SellerAuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BuyerProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 
 
 
