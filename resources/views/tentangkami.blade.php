@@ -86,7 +86,7 @@
                         <p>11. Desa Gedangan</p>
                     </div>
                     <div class="misi-card">
-                        <h4>Batas Wilayah</h4>
+                        <h4>Letak Geografis</h4>
                         <p>Wilayah Kecamatan Ngrayun sebagian besar adalah daerah pegunungan terletak 
                             pada 8°1’39”S dan 111°28’1”E serta ketinggian kurang lebih 700 meter diatas 
                             permukaan air laut dengan luas wilayah 184,76 km², jarak Kantor Camat Ngrayun 

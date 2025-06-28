@@ -58,13 +58,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/riwayat-penjualan', function () {
         return view('seller.orders.history');
     })->name('orders.history')->middleware('auth');
-    Route::get('/profil-penjual', [SellerController::class, 'editProfile'])->name('seller.profile.edit');
-    Route::put('/profil-penjual', [SellerController::class, 'updateProfile'])->name('seller.profile.update');
+    Route::get('/profil-penjual', [SellerController::class, 'editProfile'])->name('seller.setting.edit');
+    Route::put('/profil-penjual', [SellerController::class, 'updateProfile'])->name('seller.setting.update');
     Route::get('/keranjang', [CartController::class, 'index'])->name('cart.index');
     Route::post('/keranjang/tambah/{productId}', [CartController::class, 'add'])->name('cart.add');
     Route::put('/keranjang/{cart}', [CartController::class, 'update'])->name('cart.update');
     Route::delete('/keranjang/{cart}', [CartController::class, 'destroy'])->name('cart.delete');
     Route::post('/checkout', [CartController::class, 'checkout'])->name('checkout.show');
     Route::post('/checkout/process', [CartController::class, 'process'])->name('checkout.process');
-
 });
