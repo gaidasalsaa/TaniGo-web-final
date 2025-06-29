@@ -3,26 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
-class SellerController extends Controller
+class BuyerController extends Controller
 {
-    public function index()
-    {
-        return view('dashboardSeller'); 
-    }
-    
     public function editProfile()
     {
         $user = Auth::user();
-        return view('seller.settings.edit', compact('user'));
+        return view('buyer.settings.edit', compact('user'));
     }
 
     public function updateProfile(Request $request)
     {
-        $user = Auth::user(); // atau auth()->user()
+        $user = Auth::user();
 
         $request->validate([
             'name' => 'required|string|max:100',

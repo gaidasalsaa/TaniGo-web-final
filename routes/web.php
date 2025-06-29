@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BuyerProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\BuyerController;
 
 
 
@@ -58,8 +59,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/riwayat-penjualan', function () {
         return view('seller.orders.history');
     })->name('orders.history')->middleware('auth');
-    Route::get('/profil-penjual', [SellerController::class, 'editProfile'])->name('seller.setting.edit');
-    Route::put('/profil-penjual', [SellerController::class, 'updateProfile'])->name('seller.setting.update');
+    Route::get('/profil-penjual', [SellerController::class, 'editProfile'])->name('seller.settings.edit');
+    Route::put('/profil-penjual', [SellerController::class, 'updateProfile'])->name('seller.settings.update');
+    Route::get('/profil', [BuyerController::class, 'editProfile'])->name('buyer.settings.edit');
+    Route::put('/profil', [BuyerController::class, 'updateProfile'])->name('buyer.settings.update');
+    // Route::get('/profil-penjual', [SellerController::class, 'editProfile'])->name('seller.profile.edit');
     Route::get('/keranjang', [CartController::class, 'index'])->name('cart.index');
     Route::post('/keranjang/tambah/{productId}', [CartController::class, 'add'])->name('cart.add');
     Route::put('/keranjang/{cart}', [CartController::class, 'update'])->name('cart.update');

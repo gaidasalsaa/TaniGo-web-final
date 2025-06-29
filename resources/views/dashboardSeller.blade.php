@@ -36,7 +36,7 @@
             <header class="headeradm">
                 @if(Auth::check())
                     <h2>Selamat Datang, {{ Auth::user()->name }}!</h2>
-                    <a href="{{ route('seller.setting.edit') }}" class="useradm">👤 {{ Auth::user()->name }} ▾</a>
+                    <a href="{{ route('seller.settings.edit') }}" class="useradm">👤 {{ Auth::user()->name }} ▾</a>
                 @else
                     <h2>Selamat Datang, Pengunjung!</h2>
                     <a href="#" class="useradm">👤 Guest ▾</a>

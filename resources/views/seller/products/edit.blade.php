@@ -15,7 +15,7 @@
         <main class="mainadm">
             <header class="headeradm">
                 <h2>Edit Produk</h2>
-                <a href="{{ route('seller.profile.edit') }}" class="useradm">👤 {{ Auth::user()->name }} ▾</a>
+                <a href="{{ route('seller.settings.edit') }}" class="useradm">👤 {{ Auth::user()->name }} ▾</a>
             </header>
 
             <section class="form-section">

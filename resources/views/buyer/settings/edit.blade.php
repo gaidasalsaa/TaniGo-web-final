@@ -10,12 +10,12 @@
 </head>
 <body>
     <div class="containeradm">
-        @include('partials.sidebarSeller')
+        
 
         <main class="mainadm">
             <header class="headeradm">
                 <h2>Profil Saya</h2>
-                <a href="{{ route('seller.profile.edit') }}" class="useradm">👤 {{ Auth::user()->name }} ▾</a>
+                <a href="{{ route('buyer.settings.edit') }}" class="useradm">👤 {{ Auth::user()->name }} ▾</a>
             </header>
 
             <section class="setting-section">
@@ -23,7 +23,7 @@
                     <div class="alert-success">{{ session('success') }}</div>
                 @endif
 
-                <form method="POST" action="{{ route('seller.settings.update') }}" class="setting-form" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('buyer.settings.update') }}" class="setting-form" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
 
